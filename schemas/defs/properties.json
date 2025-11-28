@@ -93,27 +93,13 @@
                     "prefecture": {
                         "title": "都道府県",
                         "description": "JIS X 0401に基づく都道府県名",
-                        "allOf": [
-                            {
-                                "$ref": "#/$defs/nameDefinitions/name"
-                            },
-                            {
-                                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/prefecture"
-                            }
-                        ]
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/prefecture"
                     },
                     "city": {
                         "title": "市区町村",
                         "description": "行政区画（市・区・町・村）",
                         "example": "川崎市多摩区",
-                        "allOf": [
-                            {
-                                "$ref": "#/$defs/nameDefinitions/name"
-                            },
-                            {
-                                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/city"
-                            }
-                        ]
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/city"
                     },
                     "district": {
                         "title": "町域",
