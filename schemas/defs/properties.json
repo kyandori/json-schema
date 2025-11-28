@@ -12,7 +12,7 @@
                 "description": "一般的な名称文字列",
                 "type": "string"
             },
-            "nameKana": {
+            "kana": {
                 "$comment": "汎用的なフリガナ定義。利用時にtitle等をオーバーライドしてください。",
                 "title": "フリガナ",
                 "description": "全角カタカナによる名称の読み仮名",
@@ -48,7 +48,7 @@
                             "lastName"
                         ]
                     },
-                    "nameKana": {
+                    "kana": {
                         "title": "氏名（フリガナ）",
                         "description": "全角カタカナ表記の氏名セット",
                         "type": "object",
@@ -75,7 +75,7 @@
                 },
                 "required": [
                     "name",
-                    "nameKana"
+                    "kana"
                 ]
             }
         },
