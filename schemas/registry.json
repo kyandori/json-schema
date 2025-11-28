@@ -24,6 +24,11 @@
             "title": "汎用プロパティ定義",
             "description": "氏名、住所、連絡先などの複合プロパティ定義ファイルへの参照",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json"
+        },
+        "company": {
+            "title": "会社エンティティ",
+            "description": "会社情報に関する定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/entities/company.json"
         }
     }
 }
