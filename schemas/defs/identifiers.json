@@ -1,1 +1,58 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://kyandori.github.io/json-schema/schemas/defs/identifiers.json",
+    "title": "IdentifierDefinitions",
+    "description": "システム全体で利用される識別子（ID）の定義集",
+    "$comment": "正規表現パターンはpatterns.jsonを参照しています。",
+    "$defs": {
+        "uuid": {
+            "title": "UUID",
+            "description": "一意の識別子 (UUID v4形式)",
+            "type": "string",
+            "format": "uuid"
+        },
+        "customerId": {
+            "title": "顧客ID",
+            "description": "顧客を一意に識別するためのID (UUID v4形式)",
+            "$ref": "#/$defs/uuid"
+        },
+        "propertyNewId": {
+            "title": "新物件ID",
+            "description": "P+16桁の数字からなる新識別子",
+            "example": "P1234567890123456",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/idPropertyNew"
+        },
+        "propertyOldId": {
+            "title": "旧物件ID",
+            "description": "4-8桁の数字からなる旧識別子",
+            "example": "123456",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/idPropertyOld"
+        },
+        "structuredPropertyId": {
+            "title": "物件ID情報（構造化）",
+            "description": "新物件IDおよび旧物件IDを格納する物件識別情報（いずれか必須）",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "newPropertyId": {
+                    "$ref": "#/$defs/propertyNewId"
+                },
+                "oldPropertyId": {
+                    "$ref": "#/$defs/propertyOldId"
+                }
+            },
+            "anyOf": [
+                {
+                    "required": [
+                        "newPropertyId"
+                    ]
+                },
+                {
+                    "required": [
+                        "oldPropertyId"
+                    ]
+                }
+            ]
+        }
+    }
+}
