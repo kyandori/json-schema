@@ -16,17 +16,17 @@
             "description": "顧客を一意に識別するためのID (UUID v4形式)",
             "$ref": "#/$defs/uuid"
         },
-        "propertyNewId": {
+        "newPropertyId": {
             "title": "新物件ID",
             "description": "P+16桁の数字からなる新識別子",
             "example": "P1234567890123456",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/idPropertyNew"
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/newPropertyId"
         },
-        "propertyOldId": {
+        "oldPropertyId": {
             "title": "旧物件ID",
             "description": "4-8桁の数字からなる旧識別子",
             "example": "123456",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/idPropertyOld"
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/oldPropertyId"
         },
         "structuredPropertyId": {
             "title": "物件ID情報（構造化）",
@@ -35,10 +35,10 @@
             "additionalProperties": false,
             "properties": {
                 "newPropertyId": {
-                    "$ref": "#/$defs/propertyNewId"
+                    "$ref": "#/$defs/newPropertyId"
                 },
                 "oldPropertyId": {
-                    "$ref": "#/$defs/propertyOldId"
+                    "$ref": "#/$defs/oldPropertyId"
                 }
             },
             "anyOf": [
