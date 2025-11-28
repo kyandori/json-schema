@@ -25,13 +25,14 @@
         "phoneNumber": {
             "title": "代表電話番号",
             "description": "会社の代表連絡先（固定または携帯）",
+            "$comment": "修正: キー名をtelephoneNumberからphoneNumberへ統一し、参照先も構造化データから文字列定義へ変更",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/phoneNumber"
         },
         "faxNumber": {
             "title": "代表FAX番号",
             "description": "会社の代表FAX連絡先（固定電話形式のみ）",
             "example": "0312345679",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberFixed"
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberLandline"
         },
         "email": {
             "title": "代表メールアドレス",
