@@ -1,1 +1,29 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://kyandori.github.io/json-schema/schemas/registry.json",
+    "title": "SchemaRegistry",
+    "description": "システム全体で使用する共通定義スキーマの統合レジストリ",
+    "$comment": "各定義ファイルへのルーティングを行います。利用側はこのファイルを経由して各定義を参照できます。",
+    "$defs": {
+        "identifiers": {
+            "title": "識別子定義",
+            "description": "UUIDや独自IDなどの識別子定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/identifiers.json"
+        },
+        "enums": {
+            "title": "列挙型定義",
+            "description": "都道府県などの定数リスト定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json"
+        },
+        "patterns": {
+            "title": "パターン定義",
+            "description": "正規表現などのバリデーションパターン定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json"
+        },
+        "properties": {
+            "title": "汎用プロパティ定義",
+            "description": "氏名、住所、連絡先などの複合プロパティ定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json"
+        }
+    }
+}
