@@ -1,1 +1,223 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://kyandori.github.io/json-schema/schemas/defs/properties.json",
+    "title": "CommonPropertyDefinitions",
+    "description": "システム全体で利用される共通プロパティ定義集（氏名、住所、連絡先など）",
+    "$comment": "$defs内の各要素を$refで参照して利用してください。",
+    "$defs": {
+        "name": {
+            "$comment": "汎用的な名称定義。利用時にtitle等をオーバーライドしてください。",
+            "title": "名称",
+            "description": "一般的な名称文字列",
+            "type": "string"
+        },
+        "nameKana": {
+            "$comment": "汎用的なフリガナ定義。利用時にtitle等をオーバーライドしてください。",
+            "title": "フリガナ",
+            "description": "全角カタカナによる名称の読み仮名",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/kana"
+        },
+        "structuredName": {
+            "title": "氏名情報（構造化）",
+            "description": "姓名分割およびフリガナを含む詳細な氏名情報",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "title": "氏名（漢字）",
+                    "description": "漢字表記の氏名セット",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "firstName": {
+                            "title": "名",
+                            "description": "個人名（ファーストネーム）",
+                            "example": "太郎",
+                            "$ref": "#/$defs/name"
+                        },
+                        "lastName": {
+                            "title": "姓",
+                            "description": "氏族名（ラストネーム）",
+                            "example": "山田",
+                            "$ref": "#/$defs/name"
+                        }
+                    },
+                    "required": [
+                        "firstName",
+                        "lastName"
+                    ]
+                },
+                "nameKana": {
+                    "title": "氏名（フリガナ）",
+                    "description": "全角カタカナ表記の氏名セット",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "firstName": {
+                            "title": "メイ",
+                            "description": "個人名のフリガナ",
+                            "example": "タロウ",
+                            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/kanaStrict"
+                        },
+                        "lastName": {
+                            "title": "セイ",
+                            "description": "氏族名のフリガナ",
+                            "example": "ヤマダ",
+                            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/kanaStrict"
+                        }
+                    },
+                    "required": [
+                        "firstName",
+                        "lastName"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "nameKana"
+            ]
+        },
+        "location": {
+            "postalCode": {
+                "example": "1140034",
+                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/postalCode"
+            },
+            "address": {
+                "title": "住所詳細",
+                "description": "都道府県から建物までの構造化された住所情報",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "prefecture": {
+                        "title": "都道府県",
+                        "description": "JIS X 0401に基づく都道府県名",
+                        "allOf": [
+                            {
+                                "$ref": "#/$defs/name"
+                            },
+                            {
+                                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/prefecture"
+                            }
+                        ]
+                    },
+                    "city": {
+                        "title": "市区町村",
+                        "description": "行政区画（市・区・町・村）",
+                        "example": "川崎市多摩区",
+                        "allOf": [
+                            {
+                                "$ref": "#/$defs/name"
+                            },
+                            {
+                                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/city"
+                            }
+                        ]
+                    },
+                    "district": {
+                        "title": "町域",
+                        "description": "大字・町名",
+                        "example": "西生田",
+                        "$ref": "#/$defs/name"
+                    },
+                    "subdistrict": {
+                        "title": "丁目",
+                        "description": "丁目番地等の数値区分",
+                        "example": "3",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/subdistrict"
+                    },
+                    "streetAddress": {
+                        "title": "番地・号",
+                        "description": "街区番号、住居番号",
+                        "example": "3-15",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/streetAddress"
+                    },
+                    "buildingNameRoomNumber": {
+                        "title": "建物名・部屋番号",
+                        "description": "集合住宅名、フロア、部屋番号等",
+                        "example": "吉田マンション 105号室",
+                        "$ref": "#/$defs/name"
+                    }
+                },
+                "required": [
+                    "prefecture",
+                    "city",
+                    "district",
+                    "streetAddress"
+                ]
+            }
+        },
+        "phoneNumber": {
+            "title": "電話番号",
+            "description": "固定電話、携帯電話、またはIP電話形式の番号（ハイフンなし）",
+            "example": "0312345678",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumber"
+        },
+        "structuredPhoneNumber": {
+            "title": "電話番号情報（構造化）",
+            "description": "携帯電話と固定電話を区分した詳細な連絡先情報",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mobile": {
+                    "title": "携帯電話番号",
+                    "description": "ハイフンなし11桁の携帯電話番号",
+                    "example": "09012345678",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberMobile"
+                },
+                "landline": {
+                    "title": "固定電話番号",
+                    "description": "ハイフンなし10桁または11桁の固定電話番号",
+                    "example": "0312345678",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberFixed"
+                }
+            },
+            "anyOf": [
+                {
+                    "required": [
+                        "mobile"
+                    ]
+                },
+                {
+                    "required": [
+                        "landline"
+                    ]
+                }
+            ]
+        },
+        "mail": {
+            "title": "メールアドレス",
+            "description": "RFC 5322形式の電子メールアドレス",
+            "type": "string",
+            "format": "email",
+            "example": "info@example.co.jp"
+        },
+        "latLong": {
+            "title": "地理座標",
+            "description": "緯度および経度による位置情報",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "latitude": {
+                    "title": "緯度",
+                    "description": "北緯（正）または南緯（負）",
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90,
+                    "example": 35.6895
+                },
+                "longitude": {
+                    "title": "経度",
+                    "description": "東経（正）または西経（負）",
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180,
+                    "example": 139.6917
+                }
+            },
+            "required": [
+                "latitude",
+                "longitude"
+            ]
+        }
+    }
+}
