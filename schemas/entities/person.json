@@ -20,18 +20,6 @@
             "title": "メールアドレス",
             "description": "担当者のメールアドレス",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/email"
-        },
-        "department": {
-            "title": "部署名",
-            "description": "所属する部署や課の名称",
-            "type": "string",
-            "example": "営業部"
-        },
-        "position": {
-            "title": "役職",
-            "description": "担当者の役職名",
-            "type": "string",
-            "example": "課長"
         }
     }
 }
