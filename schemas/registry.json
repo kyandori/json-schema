@@ -39,6 +39,11 @@
             "title": "個人エンティティ",
             "description": "担当者や従業員などの個人情報に関する定義ファイルへの参照",
             "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json"
+        },
+        "bankAccount": {
+            "title": "銀行口座エンティティ",
+            "description": "銀行口座情報に関する定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/entities/bankAccount.json"
         }
     }
 }
