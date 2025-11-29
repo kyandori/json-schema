@@ -1,0 +1,140 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://kyandori.github.io/json-schema/schemas/defs/datetime.json",
+    "title": "DateTimeDefinitions",
+    "description": "日付および時刻に関する汎用定義集（構造化データ、ISO8601など）",
+    "$comment": "$defs内の各要素を$refで参照して利用してください。",
+    "$defs": {
+        "dateDefinitions": {
+            "structuredDateInteger": {
+                "title": "日付情報（構造化・数値）",
+                "description": "年・月・日・曜日で構成される日付情報（数値型）",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "year": {
+                        "title": "年",
+                        "description": "西暦年（1000年以降）",
+                        "type": "integer",
+                        "minimum": 1000,
+                        "example": 2025
+                    },
+                    "month": {
+                        "title": "月",
+                        "description": "1月から12月までの整数値",
+                        "example": 1,
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/monthInteger"
+                    },
+                    "day": {
+                        "title": "日",
+                        "description": "1日から31日までの整数値",
+                        "example": 1,
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayInteger"
+                    },
+                    "dayOfWeek": {
+                        "title": "曜日",
+                        "description": "日本語表記の曜日",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayOfWeek"
+                    }
+                },
+                "required": [
+                    "month",
+                    "day"
+                ]
+            },
+            "structuredDateString": {
+                "title": "日付情報（構造化・ゼロ埋め）",
+                "description": "年・月・日・曜日で構成される日付情報（文字列型・ゼロパディング必須）",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "year": {
+                        "title": "年",
+                        "description": "西暦年（4桁の数字文字列、1000年以降）",
+                        "type": "string",
+                        "pattern": "^[1-9][0-9]{3}$",
+                        "example": "2025"
+                    },
+                    "month": {
+                        "title": "月",
+                        "description": "01月から12月までの文字列（ゼロ埋め2桁）",
+                        "example": "01",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/monthString"
+                    },
+                    "day": {
+                        "title": "日",
+                        "description": "01日から31日までの文字列（ゼロ埋め2桁）",
+                        "example": "01",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayString"
+                    },
+                    "dayOfWeek": {
+                        "title": "曜日",
+                        "description": "日本語表記の曜日",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayOfWeek"
+                    }
+                },
+                "required": [
+                    "month",
+                    "day"
+                ]
+            }
+        },
+        "timeDefinitions": {
+            "dateTime": {
+                "title": "日時（ISO 8601）",
+                "description": "ISO 8601形式の日時文字列（例: 2023-01-01T12:00:00Z）",
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-01-01T12:00:00Z"
+            },
+            "structuredTimeInteger": {
+                "title": "時刻情報（構造化・数値）",
+                "description": "時・分で構成される時刻情報（数値型）",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "hour": {
+                        "title": "時",
+                        "description": "0時から23時までの整数値",
+                        "example": 12,
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/hourInteger"
+                    },
+                    "minute": {
+                        "title": "分",
+                        "description": "0分から59分までの整数値",
+                        "example": 30,
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/minuteInteger"
+                    }
+                },
+                "required": [
+                    "hour",
+                    "minute"
+                ]
+            },
+            "structuredTimeString": {
+                "title": "時刻情報（構造化・ゼロ埋め）",
+                "description": "時・分で構成される時刻情報（文字列型・ゼロパディング必須）",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "hour": {
+                        "title": "時",
+                        "description": "00時から23時までの文字列（ゼロ埋め2桁）",
+                        "example": "09",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/hourString"
+                    },
+                    "minute": {
+                        "title": "分",
+                        "description": "00分から59分までの文字列（ゼロ埋め2桁）",
+                        "example": "05",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/minuteString"
+                    }
+                },
+                "required": [
+                    "hour",
+                    "minute"
+                ]
+            }
+        }
+    }
+}
