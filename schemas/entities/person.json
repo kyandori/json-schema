@@ -10,16 +10,44 @@
             "description": "個人の氏名情報（漢字およびフリガナを含む構造化データ）",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/nameDefinitions/structuredName"
         },
+        "address": {
+            "title": "住所",
+            "description": "個人の居住地または連絡先住所",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/locationDefinitions/address"
+        },
         "mobilePhoneNumber": {
             "title": "携帯電話番号",
             "description": "個人の携帯電話番号（ハイフンなし11桁）",
             "example": "09012345678",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberMobile"
         },
+        "landlinePhoneNumber": {
+            "title": "固定電話番号",
+            "description": "個人の固定電話番号（ハイフンなし10桁または11桁）",
+            "example": "0312345678",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberLandline"
+        },
         "email": {
             "title": "メールアドレス",
             "description": "個人の電子メールアドレス",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/email"
+        },
+        "birthDate": {
+            "title": "生年月日",
+            "description": "個人の生年月日（構造化データ・文字列型）",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/dateDefinitions/structuredDateString"
+        },
+        "age": {
+            "title": "年齢",
+            "description": "個人の満年齢",
+            "type": "integer",
+            "minimum": 0,
+            "example": 30
+        },
+        "gender": {
+            "title": "性別",
+            "description": "個人の性別",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/gender"
         }
     }
 }
