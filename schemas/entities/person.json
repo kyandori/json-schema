@@ -15,17 +15,13 @@
             "description": "個人の居住地または連絡先住所",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/locationDefinitions/address"
         },
-        "mobilePhoneNumber": {
-            "title": "携帯電話番号",
-            "description": "個人の携帯電話番号（ハイフンなし11桁）",
-            "example": "09012345678",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberMobile"
-        },
-        "landlinePhoneNumber": {
-            "title": "固定電話番号",
-            "description": "個人の固定電話番号（ハイフンなし10桁または11桁）",
-            "example": "0312345678",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberLandline"
+        "phoneNumber": {
+            "title": "電話番号情報",
+            "description": "個人の連絡先。携帯電話番号は必須、固定電話番号は任意。",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/structuredPhoneNumber",
+            "required": [
+                "mobile"
+            ]
         },
         "email": {
             "title": "メールアドレス",
@@ -34,8 +30,11 @@
         },
         "birthDate": {
             "title": "生年月日",
-            "description": "個人の生年月日（構造化データ・文字列型）",
-            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/dateDefinitions/structuredDateString"
+            "description": "個人の生年月日（構造化データ・文字列型）。年は必須。",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/datetime.json#/$defs/dateDefinitions/structuredDateString",
+            "required": [
+                "year"
+            ]
         },
         "age": {
             "title": "年齢",
