@@ -102,7 +102,18 @@
             "title": "口座種別",
             "description": "銀行口座の種別",
             "type": "string",
-            "enum": ["普通", "当座", "貯蓄"]
+            "enum": ["普通", "当座"]
+        },
+        "gender": {
+            "title": "性別",
+            "description": "性別（日本語表記）",
+            "type": "string",
+            "enum": [
+                "男性",
+                "女性",
+                "その他",
+                "回答しない"
+            ]
         }
     }
 }
