@@ -208,6 +208,42 @@
                 "format": "email",
                 "example": "info@example.co.jp"
             }
+        },
+        "imageDefinitions": {
+            "imageUrl": {
+                "title": "画像URL",
+                "description": "画像の場所を示すURL（URI形式）",
+                "type": "string",
+                "format": "uri",
+                "example": "https://example.com/images/logo.png"
+            },
+            "structuredImage": {
+                "title": "画像情報（構造化）",
+                "description": "画像URLと代替テキスト等を含む構造化データ",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "url": {
+                        "title": "画像URL",
+                        "description": "画像のURL",
+                        "$ref": "#/$defs/imageDefinitions/imageUrl"
+                    },
+                    "altText": {
+                        "title": "代替テキスト",
+                        "description": "画像の内容を説明するテキスト（アクセシビリティ用）",
+                        "type": "string",
+                        "example": "会社のロゴ"
+                    },
+                    "caption": {
+                        "title": "キャプション",
+                        "description": "画像の下に表示する説明文",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url"
+                ]
+            }
         }
     }
 }
