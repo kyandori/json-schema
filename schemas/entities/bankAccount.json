@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://kyandori.github.io/json-schema/schemas/entities/bankAccount.json",
+    "title": "BankAccountEntityDefinitions",
+    "description": "銀行口座に関する属性定義集（銀行名、口座番号、名義人など）",
+    "$comment": "$defs内の各要素を$refで参照して利用してください。",
+    "$defs": {
+        "bankAccount": {
+            "title": "銀行口座情報",
+            "description": "金融機関の口座情報一式",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "bankName": {
+                    "title": "銀行名",
+                    "description": "金融機関の名称",
+                    "type": "string"
+                },
+                "bankCode": {
+                    "title": "銀行コード",
+                    "description": "金融機関コード（4桁）。ゆうちょ銀行の場合は「9900」を入力。",
+                    "example": "0001",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/bankCode"
+                },
+                "branchName": {
+                    "title": "支店名",
+                    "description": "本支店の名称。ゆうちょ銀行の場合は漢数字の店名（例：〇一八）。",
+                    "type": "string",
+                    "example": "本店営業部"
+                },
+                "branchCode": {
+                    "title": "支店コード",
+                    "description": "支店コード（3桁）。ゆうちょ銀行の場合は店番（記号の2-3桁目+数字1桁）を入力。",
+                    "example": "001",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/branchCode"
+                },
+                "accountType": {
+                    "title": "口座種別",
+                    "description": "普通、当座、貯蓄などの口座種別",
+                    "example": "普通",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/bankAccountType"
+                },
+                "accountNumber": {
+                    "title": "口座番号",
+                    "description": "口座番号（7桁）。ゆうちょ銀行の場合は記号・番号ではなく「他行振込用の口座番号」を入力。",
+                    "example": "1234567",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/bankAccountNumber"
+                },
+                "accountHolderName": {
+                    "title": "口座名義",
+                    "description": "口座名義人（全角カタカナ）。法人の場合は「カ）」「（カ」等の略称を使用。",
+                    "example": "ヤマダ　タロウ",
+                    "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/bankAccountHolder"
+                }
+            },
+            "required": [
+                "bankName",
+                "branchName",
+                "accountType",
+                "accountNumber",
+                "accountHolderName"
+            ]
+        }
+    }
+}
