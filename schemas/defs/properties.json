@@ -208,42 +208,6 @@
                 "format": "email",
                 "example": "info@example.co.jp"
             }
-        },
-        "timeDefinitions": {
-            "hour": {
-                "title": "時",
-                "description": "0時から23時までの整数値",
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 23,
-                "example": 12
-            },
-            "minute": {
-                "title": "分",
-                "description": "0分から59分までの整数値",
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 59,
-                "example": 30
-            },
-            "structuredTime": {
-                "title": "時刻情報（構造化）",
-                "description": "時・分で構成される時刻情報",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "hour": {
-                        "$ref": "#/$defs/timeDefinitions/hour"
-                    },
-                    "minute": {
-                        "$ref": "#/$defs/timeDefinitions/minute"
-                    }
-                },
-                "required": [
-                    "hour",
-                    "minute"
-                ]
-            }
         }
     }
 }
