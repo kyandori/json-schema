@@ -25,6 +25,11 @@
             "description": "氏名、住所、連絡先などの複合プロパティ定義ファイルへの参照",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json"
         },
+        "datetime": {
+            "title": "日時定義",
+            "description": "日付・時刻に関する汎用定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/datetime.json"
+        },
         "company": {
             "title": "会社エンティティ",
             "description": "会社情報に関する定義ファイルへの参照",
