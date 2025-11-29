@@ -98,12 +98,6 @@
                 },
                 "email": {
                     "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/email"
-                },
-                "department": {
-                    "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/department"
-                },
-                "position": {
-                    "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/position"
                 }
             },
             "required": [
