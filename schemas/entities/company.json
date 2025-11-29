@@ -83,26 +83,6 @@
                 "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayOfWeek"
             },
             "uniqueItems": true
-        },
-        "contactPerson": {
-            "title": "担当者情報",
-            "description": "会社の担当者に関する詳細情報（氏名、携帯、メール等）",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "name": {
-                    "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/fullName"
-                },
-                "mobilePhoneNumber": {
-                    "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/mobilePhoneNumber"
-                },
-                "email": {
-                    "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json#/$defs/email"
-                }
-            },
-            "required": [
-                "name"
-            ]
         }
     }
 }
