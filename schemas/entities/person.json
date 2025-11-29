@@ -2,23 +2,23 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://kyandori.github.io/json-schema/schemas/entities/person.json",
     "title": "PersonEntityDefinitions",
-    "description": "個人（担当者、従業員など）に関する属性定義集",
+    "description": "個人エンティティに関する属性定義集（氏名、連絡先など）",
     "$comment": "$defs内の各要素を$refで参照して利用してください。",
     "$defs": {
         "fullName": {
             "title": "氏名",
-            "description": "担当者の氏名（漢字・フリガナ）",
+            "description": "個人の氏名情報（漢字およびフリガナを含む構造化データ）",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/nameDefinitions/structuredName"
         },
         "mobilePhoneNumber": {
             "title": "携帯電話番号",
-            "description": "担当者の携帯連絡先（ハイフンなし11桁）",
+            "description": "個人の携帯電話番号（ハイフンなし11桁）",
             "example": "09012345678",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/patterns.json#/$defs/phoneNumberMobile"
         },
         "email": {
             "title": "メールアドレス",
-            "description": "担当者のメールアドレス",
+            "description": "個人の電子メールアドレス",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/email"
         }
     }
