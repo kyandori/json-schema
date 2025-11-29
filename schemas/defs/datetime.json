@@ -134,6 +134,28 @@
                     "hour",
                     "minute"
                 ]
+            },
+            "timeRange": {
+                "title": "時間帯",
+                "description": "開始時刻と終了時刻で構成される時間範囲",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "startTime": {
+                        "title": "開始時刻",
+                        "description": "営業開始時間など",
+                        "$ref": "#/$defs/timeDefinitions/structuredTimeString"
+                    },
+                    "endTime": {
+                        "title": "終了時刻",
+                        "description": "営業終了時間など",
+                        "$ref": "#/$defs/timeDefinitions/structuredTimeString"
+                    }
+                },
+                "required": [
+                    "startTime",
+                    "endTime"
+                ]
             }
         }
     }
