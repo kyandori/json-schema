@@ -17,6 +17,13 @@
             "type": "string",
             "pattern": "^[ァ-ヴー]+$"
         },
+        "bankAccountHolder": {
+            "title": "口座名義（法人対応）",
+            "description": "全角カタカナ、スペース、括弧、記号を含む口座名義文字列",
+            "type": "string",
+            "pattern": "^[ァ-ヴー 　\(\)（）\.\-・]+$",
+            "example": "カ）ヤマダショウジ"
+        },
         "city": {
             "title": "市区町村末尾チェック",
             "description": "末尾が「市」「区」「町」「村」のいずれかで終わる文字列",
@@ -56,6 +63,24 @@
         "postalCode": {
             "title": "郵便番号",
             "description": "7桁の半角数字（ハイフンなし）",
+            "type": "string",
+            "pattern": "^[0-9]{7}$"
+        },
+        "bankCode": {
+            "title": "銀行コード",
+            "description": "金融機関コード（4桁の半角数字）",
+            "type": "string",
+            "pattern": "^[0-9]{4}$"
+        },
+        "branchCode": {
+            "title": "支店コード",
+            "description": "支店コード（3桁の半角数字）",
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+        },
+        "bankAccountNumber": {
+            "title": "口座番号",
+            "description": "口座番号（7桁の半角数字）",
             "type": "string",
             "pattern": "^[0-9]{7}$"
         },
