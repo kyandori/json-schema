@@ -25,7 +25,6 @@
         "phoneNumber": {
             "title": "代表電話番号",
             "description": "会社の代表連絡先（固定または携帯）",
-            "$comment": "修正: キー名をtelephoneNumberからphoneNumberへ統一し、参照先も構造化データから文字列定義へ変更",
             "$ref": "https://kyandori.github.io/json-schema/schemas/defs/properties.json#/$defs/contactDefinitions/phoneNumber"
         },
         "faxNumber": {
