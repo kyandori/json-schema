@@ -3,7 +3,7 @@
     "$id": "https://kyandori.github.io/json-schema/schemas/defs/enums.json",
     "title": "CommonEnumerationDefinitions",
     "description": "システム全体で利用される共通列挙型定義集（都道府県名、日時など）",
-    "$comment": "$defs内の各要素を$refで参照して利用してください。",
+    "$comment": "$defs内の各要素を$refで参照して利用してください。type:stringを含んでいます。",
     "$defs": {
         "prefecture": {
             "title": "都道府県名（漢字）",
@@ -97,6 +97,12 @@
                 "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
                 "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"
             ]
+        },
+        "bankAccountType": {
+            "title": "口座種別",
+            "description": "銀行口座の種別",
+            "type": "string",
+            "enum": ["普通", "当座", "貯蓄"]
         }
     }
 }
