@@ -44,6 +44,45 @@
             "type": "string",
             "format": "uri",
             "example": "https://example.co.jp"
+        },
+        "businessHours": {
+            "title": "営業時間",
+            "description": "曜日ごとの営業時間設定のリスト",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "days": {
+                        "title": "対象曜日",
+                        "description": "この営業時間が適用される曜日のリスト",
+                        "type": "array",
+                        "items": {
+                            "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayOfWeek"
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                    },
+                    "time": {
+                        "title": "時間帯",
+                        "description": "開店時刻と閉店時刻",
+                        "$ref": "https://kyandori.github.io/json-schema/schemas/defs/datetime.json#/$defs/timeDefinitions/timeRange"
+                    }
+                },
+                "required": [
+                    "days",
+                    "time"
+                ]
+            }
+        },
+        "regularHolidays": {
+            "title": "定休日",
+            "description": "会社や店舗の定休日（曜日リスト）",
+            "type": "array",
+            "items": {
+                "$ref": "https://kyandori.github.io/json-schema/schemas/defs/enums.json#/$defs/dayOfWeek"
+            },
+            "uniqueItems": true
         }
     }
 }
