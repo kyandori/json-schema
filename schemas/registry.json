@@ -34,6 +34,11 @@
             "title": "会社エンティティ",
             "description": "会社情報に関する定義ファイルへの参照",
             "$ref": "https://kyandori.github.io/json-schema/schemas/entities/company.json"
+        },
+        "person": {
+            "title": "個人エンティティ",
+            "description": "担当者や従業員などの個人情報に関する定義ファイルへの参照",
+            "$ref": "https://kyandori.github.io/json-schema/schemas/entities/person.json"
         }
     }
 }
